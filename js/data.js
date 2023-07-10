@@ -65,7 +65,7 @@ function addItemsToTable(id, name, type, style, other, url) {
                                                 <tr>
                                                     <td style="background-color: transparent;color: white;">
                                                         <button type="button"
-                                                            class="btn btn-inverse-success btn-fw">Open</button>
+                                                            class="btn btn-inverse-success btn-fw" data-bs-toggle="modal" data-bs-target="#exampleModal">Open</button>
     
                                                         <button type="button"
                                                             class="btn btn-inverse-danger btn-fw">Download</button>
@@ -87,8 +87,9 @@ var type = document.getElementById('fileTypes');
 var style = document.getElementById('fileStyle');
 var other = document.getElementById('fileOther');
 var url = document.getElementById('showURL');
+var fileID = document.getElementById('fileID');
 
-var BtnSubmit = document.getElementById('mySubmit');
+var BtnSubmit = document.getElementById('uploadBtn');
 var BtnUpdate = document.getElementById('myUpdate');
 var BtnDele = document.getElementById('myDele');
 var BtnClearBox = document.getElementById('myClear');
@@ -104,6 +105,7 @@ function Fillbox(index) {
 
     }
     else {
+        fileID.value = stdList[index][0];
         Mname.value = stdList[index][1];
         type.value = stdList[index][2];
         style.value = stdList[index][3];
@@ -119,61 +121,55 @@ function Fillbox(index) {
 NewBox();
 
 function NewBox() {
-    let r = (Math.random() + 1).toString(36).substring(7);
-    Mid.value = r;
-    Mdate.value = '';
-    Mtimes.value = '';
-    Mweeks.value = '';
-    Mmonth.value = '';
-    Mother.value = '';
-    // Mmypaid.value = '';
+    Mname.value = '';
+    type.value = '';
+    style.value = '';
+    other.value = '';
+    url.innerText = '';
+    fileID.value = '';
     BtnSubmit.style.display = 'inline-block';
     BtnUpdate.style.display = 'none';
     BtnDele.style.display = 'none';
     BtnClearBox.style.display = 'none';
 }
 
-function AddStd(e) {
-    firebase.database().ref("myNotePad/" + Mdate.value).set(
-        {
-            id: Mid.value,
-            date: Mdate.value,
-            times: Mtimes.value,
-            weeks: Mweeks.value,
-            month: Mmonth.value,
-            other: Mother.value,
-            pay: Mmypaid.value,
-        },
-    )
-    selectAllData();
-    window.location.reload();
-    e.preventDefault();
+// function AddStd(e) {
+//     firebase.database().ref("myNotePad/" + Mdate.value).set(
+//         {
+//             id: Mid.value,
+//             date: Mdate.value,
+//             times: Mtimes.value,
+//             weeks: Mweeks.value,
+//             month: Mmonth.value,
+//             other: Mother.value,
+//             pay: Mmypaid.value,
+//         },
+//     )
+//     selectAllData();
+//     window.location.reload();
+//     e.preventDefault();
 
 
-}
-function UpStd(e) {
-    firebase.database().ref("myNotePad/" + Mdate.value).update(
+// }
+function UpStd() {
+    firebase.database().ref("myLibraryBooks/" + fileID.value).set(
         {
-            id: Mid.value,
-            date: Mdate.value,
-            times: Mtimes.value,
-            weeks: Mweeks.value,
-            month: Mmonth.value,
-            other: Mother.value,
-            pay: Mmypaid.value,
+            id: fileID.value,
+            name: Mname.value,
+            type: type.value,
+            style: style.value,
+            other: other.value,
+            bookurl: url.innerText,
         },
     )
-    selectAllData();
-    e.preventDefault();
     window.location.reload();
 
 }
-function DelStd(e) {
-    firebase.database().ref("myNotePad/" + Mdate.value).remove().then(
+function DelStd() {
+    firebase.database().ref("myLibraryBooks/" + fileID.value).remove().then(
         function () {
             selectAllData();
-            // window.location.reload();
-            e.preventDefault();
+            window.location.reload();
 
         }
     )

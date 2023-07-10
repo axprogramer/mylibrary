@@ -442,7 +442,7 @@
                 </ul>
             </nav>
             <!-- partial -->
-
+            <!-- Modal -->
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="col-12 grid-margin stretch-card">
@@ -452,6 +452,11 @@
                                 <p class="card-description">
                                 <p id="showPercent" style="color: rgb(255, 47, 47);"></p>
                                 </p>
+                                <div class="form-group">
+                                    <label for="fileID">ID</label>
+                                    <input type="text" class="form-control" id="fileID" placeholder="Name"
+                                        style="color: black;">
+                                </div>
                                 <div class="form-group">
                                     <label for="fileName">Name</label>
                                     <input type="text" class="form-control" id="fileName" placeholder="Name"
@@ -499,16 +504,51 @@
                                     <label for="fileOther">File Information</label>
                                     <textarea class="form-control" id="fileOther" rows="4"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary mr-2" id="uploadBtn">Submit</button>
+                                <div class="btnCon">
+                                    <button type="submit" class="btn btn-primary mr-2" id="uploadBtn">Submit</button>
+                                    <button id="myClear" onclick="NewBox()" class="btn btn-info btn-rounded btn-fw"
+                                        role="button" name="clearup_data">Clear<i class="bi bi-stars"
+                                            style="padding-left: 5px;"></i></button>
+                                    <button id="myUpdate" onclick="UpStd()" class="btn btn-warning btn-rounded btn-fw"
+                                        role="button" name="update_data">Update<i class="bi bi-arrow-bar-up"
+                                            style="padding-left: 5px;"></i></button>
+                                    <button id="myDele" onclick="DelStd()" class="btn btn-danger btn-rounded btn-fw"
+                                        role="button" name="clear_data">Delete<i class="bi bi-calendar-x-fill"
+                                            style="padding-left: 5px;"></i></button>
+                                </div>
                             </div>
                             <div id="myCard" style="overflow-y: scroll;height: 20rem;">
-                                
+
 
                             </div>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <embed
+                                                src="https://firebasestorage.googleapis.com/v0/b/teachingrecord-6b575.appspot.com/o/myLibrary%2FSemester%20II.pdf?alt=media&token=cc55b28c-12e1-40db-bcc2-af0770431839"
+                                                width="100%" height="100%">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
