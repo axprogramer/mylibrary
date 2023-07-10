@@ -1,16 +1,15 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyAOX5I_BB9soXF4yHMp9NCPVk2Z-d3DEPE",
-    authDomain: "teachingrecord-6b575.firebaseapp.com",
-    databaseURL: "https://teachingrecord-6b575-default-rtdb.firebaseio.com",
-    projectId: "teachingrecord-6b575",
-    storageBucket: "teachingrecord-6b575.appspot.com",
-    messagingSenderId: "1097574891233",
-    appId: "1:1097574891233:web:d69ed85c4f4b83daad41a0"
-};
+// const firebaseConfig = {
+//     apiKey: "AIzaSyAOX5I_BB9soXF4yHMp9NCPVk2Z-d3DEPE",
+//     authDomain: "teachingrecord-6b575.firebaseapp.com",
+//     databaseURL: "https://teachingrecord-6b575-default-rtdb.firebaseio.com",
+//     projectId: "teachingrecord-6b575",
+//     storageBucket: "teachingrecord-6b575.appspot.com",
+//     messagingSenderId: "1097574891233",
+//     appId: "1:1097574891233:web:d69ed85c4f4b83daad41a0"
+// };
 
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
 
-var my5aAll = firebase.database().ref('myNotePad');
 
 const getElementVal = (id) => {
     return document.getElementById(id).value;
@@ -18,18 +17,17 @@ const getElementVal = (id) => {
 function selectAllData() {
     // document.getElementById('myNewInput').innerHTML = "";
     studentN0 = 0;
-    firebase.database().ref('myNotePad').once('value',
+    firebase.database().ref('myLibraryBooks').once('value',
         function (AllRecords) {
             AllRecords.forEach(
                 function (CurrentRecord) {
                     var id = CurrentRecord.val().id;
-                    var date = CurrentRecord.val().date;
-                    var times = CurrentRecord.val().times;
-                    var weeks = CurrentRecord.val().weeks;
-                    var month = CurrentRecord.val().month;
+                    var name = CurrentRecord.val().name;
+                    var type = CurrentRecord.val().type;
+                    var style = CurrentRecord.val().style;
                     var other = CurrentRecord.val().other;
-                    var pay = CurrentRecord.val().pay;
-                    addItemsToTable(id, date, times, weeks, month, other, pay);
+                    var url = CurrentRecord.val().bookurl;
+                    addItemsToTable(id, name, type, style, other, url);
                 }
             );
         });
@@ -39,66 +37,56 @@ window.onload = selectAllData;
 var studentN0;
 
 var stdList = [];
-function addItemsToTable(id, date, times, weeks, month, other, pay) {
+function addItemsToTable(id, name, type, style, other, url) {
     var tbody = document.getElementById('myCard');
 
-    stdList.push([id, date, times, weeks, month, other, pay]);
+    stdList.push([id, name, type, style, other, url]);
     
     let tr = `
-                        <div class="card card-tale" id="${date}" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <div class="card-body" onclick="Fillbox(${studentN0})">
-                                <td style="background-color: transparent;color: white;">
-                                      <span style="color: brown;font-weight: bold;display:none "> ${++studentN0}</span>
-                                
-                                <table class="table-borderless table">
-                                    <tr>
-                                        <td style="background-color: transparent;color: white;">
-                                            ID:  <span style="color: rgb(198, 255, 9);font-weight: bold" > ${id}</span>
-                                        </td>
-                                        <td style="background-color: transparent;color: white;">
-                                            Date: ${date}
-                                        </td>
-                                        <td style="background-color: transparent;color: white;">
-                                            Times: ${times}
-                                        </td>
-                                        </tr>
-                                    <tr>
-                                        <td style="background-color: transparent;color: white;">
-                                            Month: ${month}
-                                        </td>
-                                        <td style="background-color: transparent;color: white;">
-                                            Week: ${weeks}
-                                        </td>
-                                        <td style="background-color: transparent;color: white;">
-                                            Payment: ${pay}
-                                        </td>
+                       <div class="card card-dark-blue">
+                                    <div class="card-body" onclick="Fillbox(${studentN0})">
+                                        <div style="background-color: transparent;color: white;">
+                                            <span style="color: brown;font-weight: bold;display:none ">
+                                                ${++studentN0}</span>
 
-                                    </tr>
-                                </table>
-                                <textarea disabled name="myother" id="myother" cols="55" rows="5"
-                                    class="form-control" id="${date}other">${other}</textarea>
-                            </div>
-                        </div>
-                        <br>
+                                            <table class="table-borderless table">
+                                                <tr>
+                                                    <td style="background-color: transparent;color: white;">
+                                                        Name: <span style="color: rgb(247, 235, 146);font-weight: bold">
+                                                            ${name}</span>
+                                                    </td>
+                                                    <td style="background-color: transparent;color: white;">
+                                                        Type of Book: ${type}
+                                                    </td>
+                                                    <td style="background-color: transparent;color: white;">
+                                                        Book Styles: ${style}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="background-color: transparent;color: white;">
+                                                        <button type="button"
+                                                            class="btn btn-inverse-success btn-fw">Open</button>
+    
+                                                        <button type="button"
+                                                            class="btn btn-inverse-danger btn-fw">Download</button>
+                                                    </td>
+
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
             
             `
-    if (pay == 'paid') {
-        tbody.innerHTML = '';
-
-    } else {
-        tbody.innerHTML += tr;
-
-    }
+    tbody.innerHTML += tr;
 }
 
-var Mid = document.getElementById('myid');
-var Mdate = document.getElementById('myDate');
-var Mtimes = document.getElementById('myTimes');
-var Mweeks = document.getElementById('myWeeks');
-var Mmonth = document.getElementById('myMonth');
-var Mother = document.getElementById('myother');
-var Mmypaid = document.getElementById('mypaid');
-
+var Mname = document.getElementById('fileName');
+var type = document.getElementById('fileTypes');
+var style = document.getElementById('fileStyle');
+var other = document.getElementById('fileOther');
+var url = document.getElementById('showURL');
 
 var BtnSubmit = document.getElementById('mySubmit');
 var BtnUpdate = document.getElementById('myUpdate');
@@ -116,13 +104,11 @@ function Fillbox(index) {
 
     }
     else {
-        Mid.value = stdList[index][0];
-        Mdate.value = stdList[index][1];
-        Mtimes.value = stdList[index][2];
-        Mweeks.value = stdList[index][3];
-        Mmonth.value = stdList[index][4];
-        Mother.value = stdList[index][5];
-        Mmypaid.value = stdList[index][6];
+        Mname.value = stdList[index][1];
+        type.value = stdList[index][2];
+        style.value = stdList[index][3];
+        other.value = stdList[index][4];
+        url.innerText = stdList[index][5];
         BtnClearBox.style.display = 'inline-block';
 
         BtnSubmit.style.display = 'none';
