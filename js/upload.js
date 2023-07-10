@@ -31,10 +31,10 @@ input.onchange = e => {
 
     var extention = GetFileExt(files[0]);
     var name = GetFileName(files[0]);
-    nameBox.value = name;
-    extlab.innerHTML = extention;
+    nameBox.value = name + extention;
+    // extlab.innerHTML = extention;
     reader.readAsDataURL(files[0]);
-    // UploadProcess();
+    UploadProcess();
 }
 // reader.onload = function () {
 //     myimg.src = reader.result;
@@ -54,7 +54,7 @@ function GetFileName(file) {
 }
 async function UploadProcess() {
     var ImgToUpload = files[0];
-    var ImgName = nameBox.value + extlab.innerHTML;
+    var ImgName = nameBox.value;
     const metaData = {
         contenType: ImgToUpload.type
     }
@@ -73,7 +73,7 @@ async function UploadProcess() {
         () => {
             getDownloadURL(UploadTask.snapshot.ref).then((getDownloadURL) => {
                 console.log(getDownloadURL);
-                showURL.value = getDownloadURL;
+                showURL.innerText = getDownloadURL;
                 proglab.innerHTML = `Upload completed!`;
                 setTimeout(function () {
                     proglab.innerHTML = '';
@@ -82,6 +82,6 @@ async function UploadProcess() {
         }
     );
 }
-UpBtn.onclick = UploadProcess;
+// UpBtn.onclick = UploadProcess;
 var dbGrade = localStorage.getItem("newGrade");
 var dbYear = localStorage.getItem("newYear");

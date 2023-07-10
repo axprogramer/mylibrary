@@ -450,10 +450,9 @@
                             <div class="card-body">
                                 <h4 class="card-title">Upload PDF</h4>
                                 <p class="card-description">
-                                    ...
+                                    <p id="showPercent" style="color: rgb(255, 47, 47);"></p>
                                 </p>
-                                <form class="forms-sample">
-                                    <!-- <div class="form-group">
+                                    <div class="form-group">
                                         <label for="fileName">Name</label>
                                         <input type="text" class="form-control" id="fileName" placeholder="Name"
                                             style="color: black;">
@@ -471,8 +470,8 @@
 
                                                 </td>
                                                 <td>
-                                                    <label for="fileTypes">Book Styles</label>
-                                                    <select class="form-control" id="fileTypes" style="color: black;">
+                                                    <label for="fileStyle">Book Styles</label>
+                                                    <select class="form-control" id="fileStyle" style="color: black;">
                                                         <option>Student's Book</option>
                                                         <option>Workbook</option>
                                                         <option>Exercise</option>
@@ -487,42 +486,20 @@
                                         <input type="file" name="img[]" class="file-upload-default">
                                         <div class="input-group col-xs-12">
                                             <input type="text" class="form-control file-upload-info" disabled
-                                                placeholder="Upload Image">
+                                                placeholder="Upload Image" id="nameBox">
+                                                <!-- <p id="extlab"></p> -->
                                             <span class="input-group-append">
-                                                <button class="file-upload-browse btn btn-primary"
+                                                <button id="seleImg" class="file-upload-browse btn btn-primary"
                                                     type="button">Upload</button>
                                             </span>
                                         </div>
+                                        <span >URL: <span id="showURL"></span></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="fileOther">File Information</label>
                                         <textarea class="form-control" id="fileOther" rows="4"></textarea>
-                                    </div> -->
-                                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                </form>
-                                <table class="table-borderless table text-center">
-                                    <tr>
-                                        <td>
-                                            <p id="showPercent" style="color: greenyellow;"><span id="showCheck"><img style="width: 75px;"
-                                                        src="" alt=""></span></p>
-                                            <button id="seleImg" style="background-color: transparent;border: none;color: aliceblue;">
-                                                <img src="" id="showImgUpload" style="height: 15vh;">
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="text" id="nameBox" >
-                                            <p id="extlab"></p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="text" id="showURL">
-                                            <button id="uploadBtn">Upload</button>
-                                        </td>
-                                    </tr>
-                                </table>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mr-2" id="uploadBtn">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -579,6 +556,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-storage.js"></script>
     <script type="module" src="./js/upload.js"></script>
+    <script src="./js/uploadInfo.js"></script>
     <!-- <script src="./js/data.js"></script> -->
     <!-- End custom js for this page-->
 </body>
