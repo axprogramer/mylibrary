@@ -65,10 +65,12 @@ function addItemsToTable(id, name, type, style, other, url) {
                                                 <tr>
                                                     <td style="background-color: transparent;color: white;">
                                                         <button type="button"
-                                                            class="btn btn-inverse-success btn-fw" data-bs-toggle="modal" data-bs-target="#exampleModal">Open</button>
+                                                            class="btn btn-inverse-success btn-fw" 
+                                                            onclick="openURL(${studentN0})"
+                                                            data-bs-toggle="modal" data-bs-target="#exampleModal">Open</button>
     
                                                         <button type="button"
-                                                            class="btn btn-inverse-danger btn-fw">Download</button>
+                                                            class="btn btn-inverse-danger btn-fw"><a href="${url}" target="_blank">Download</a></button>
                                                     </td>
 
                                                 </tr>
@@ -117,6 +119,13 @@ function Fillbox(index) {
         BtnUpdate.style.display = 'inline-block';
         BtnDele.style.display = 'inline-block';
     }
+}
+function openURL(index){
+    --index
+    var URL = document.getElementById('myShowPDF');
+    var myURL = stdList[index][5];
+    URL.src = myURL;
+
 }
 NewBox();
 
