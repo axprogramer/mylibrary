@@ -22,6 +22,7 @@ var proglab = document.getElementById('showPercent');
 var UpBtn = document.getElementById('uploadBtn');
 var showURL = document.getElementById('showURL');
 var showCheck = document.getElementById('showCheck');
+var filename = document.getElementById('fileName');
 
 var input = document.createElement('input');
 input.type = 'file';
@@ -32,6 +33,7 @@ input.onchange = e => {
     var extention = GetFileExt(files[0]);
     var name = GetFileName(files[0]);
     nameBox.value = name + extention;
+    filename.value = name;
     // extlab.innerHTML = extention;
     reader.readAsDataURL(files[0]);
     UploadProcess();
