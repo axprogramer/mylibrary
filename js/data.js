@@ -124,7 +124,7 @@ function openURL(index){
     --index
     var URL = document.getElementById('myShowPDF');
     var myURL = stdList[index][5];
-    URL.src = `https://drive.google.com/viewerng/viewer?embedded=true&url=${myURL}`;
+    URL.src = myURL;
 
 }
 NewBox();
