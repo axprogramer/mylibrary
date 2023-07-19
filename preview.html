@@ -19,6 +19,7 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/icon.png" />
@@ -448,7 +449,10 @@
             </button>
              -->
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div id="mymodal">
+
+            </div>
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -460,172 +464,77 @@
                         </div>
                         <div class="modal-body">
                             <div class="card-body">
-                                <p class="card-description" style="color: red;" id="alert">
 
-                                </p>
-                                <div class="table-responsive pt-3">
-                                    <table class="table table-borderless" id="myTable">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <div class="form-group">
-                                                        <label for="userID">ID</label>
-                                                        <input type="text" class="form-control" id="myid"
-                                                            placeholder="ID">
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div class="form-group">
-                                                        <label for="Username">Date</label>
-                                                        <input type="date" class="form-control" id="myDate"
-                                                            placeholder="Date">
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div class="form-group">
-                                                        <label for="times">Times</label>
-                                                        <select class="form-control" id="myTimes" style="color: black;">
-                                                            <option value="01">01</option>
-                                                            <option value="02">02</option>
-                                                            <option value="03">03</option>
-                                                            <option value="04">04</option>
-                                                            <option value="05">05</option>
-                                                            <option value="06">06</option>
-                                                            <option value="07">07</option>
-                                                            <option value="08">08</option>
-                                                        </select>
-                                                    </div>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <div class="form-group">
-                                                        <label for="month">Month</label>
-                                                        <select class="form-control" id="myMonth" style="color: black;">
-                                                            <option value="January">January</option>
-                                                            <option value="February">February</option>
-                                                            <option value="March">March</option>
-                                                            <option value="April">April</option>
-                                                            <option value="May">May</option>
-                                                            <option value="June">June</option>
-                                                            <option value="July">July</option>
-                                                            <option value="August">August</option>
-                                                            <option value="September">September</option>
-                                                            <option value="October">October</option>
-                                                            <option value="November">November</option>
-                                                            <option value="December">December</option>
-                                                        </select>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div class="form-group">
-                                                        <label for="weeks">Weeks</label>
-                                                        <select class="form-control" id="myWeeks" style="color: black;">
-                                                            <option value="01">01</option>
-                                                            <option value="02">02</option>
-                                                            <option value="03">03</option>
-                                                            <option value="04">04</option>
-                                                        </select>
-                                                    </div>
-                                                </th>
-                                                <th>
-                                                    <div class="form-group">
-                                                        <label for="paid">Payment</label>
-                                                        <select class="form-control" id="mypaid" style="color: black;">
-                                                            <option value="paid">Paid</option>
-                                                            <option value="unpaid" selected>Unpaid</option>
-                                                        </select>
-                                                    </div>
-                                                </th>
+                                <video controls="" name="media" style="width: 100%;height: 100%;">
+                                    <source
+                                        src="https://firebasestorage.googleapis.com/v0/b/teachingrecord-6b575.appspot.com/o/mathG7%2Fu5%2F%E1%9E%80%E1%9E%B6%E1%9E%9A%E1%9E%94%E1%9E%84%E1%9F%92%E1%9E%82%E1%9E%8F%E1%9F%8B%E1%9E%85%E1%9F%86%E1%9E%93%E1%9E%BD%E1%9E%93%E1%9E%91%E1%9E%9F%E1%9E%97%E1%9E%B6%E1%9E%82%E1%9E%80%E1%9E%B6%E1%9E%9A%E1%9E%94%E1%9F%89%E1%9E%B6%E1%9E%93%E1%9F%8B%E1%9E%9F%E1%9F%92%E1%9E%98%E1%9E%B6%E1%9E%93%E1%9E%85%E1%9E%98%E1%9F%92%E1%9E%9B%E1%9E%BE%E1%9E%99%E1%9E%94%E1%9F%92%E1%9E%9A%E1%9E%A0%E1%9F%82%E1%9E%9B__%20%E1%9E%91%E1%9F%86%E1%9E%96%E1%9F%90%E1%9E%9A%E1%9E%91%E1%9E%B853-62%20__%20%E1%9E%90%E1%9F%92%E1%9E%93%E1%9E%B6%E1%9E%80%E1%9F%8B%E1%9E%91%E1%9E%B87%20__%E1%9E%98%E1%9F%81%E1%9E%9A%E1%9F%80%E1%9E%91%E1%9E%B8%E1%9F%A5%20%E1%9E%85%E1%9F%86%E1%9E%93%E1%9E%BD%E1%9E%93%E1%9E%91%E1%9E%9F(720P_.mp4?alt=media&amp;token=efa034e0-389e-4855-bbd9-42e495615a57"
+                                        type="video/mp4">
+                                </video>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody id="myTbody">
-
-                                        </tbody>
-                                    </table>
-                                    <table class="table table-borderless">
-                                        <tr>
-                                            <td>
-                                                <textarea name="myother" id="myother" cols="55" rows="5"
-                                                    class="form-control"></textarea>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="btnCon">
-                                <button id="myClear" onclick="NewBox()" class="btn btn-info btn-rounded btn-fw"
-                                    role="button" name="clearup_data">Clear<i class="bi bi-stars"
-                                        style="padding-left: 5px;"></i></button>
-                                <button id="mySubmit" onclick="AddStd(event)" class="btn btn-success btn-rounded btn-fw"
-                                    role="button" type="submit">Submit<i class="bi bi-cloud-download-fill"
-                                        style="padding-left: 5px;"></i></button>
-                                <button id="myUpdate" onclick="UpStd(event)" class="btn btn-warning btn-rounded btn-fw"
-                                    role="button" name="update_data">Update<i class="bi bi-arrow-bar-up"
-                                        style="padding-left: 5px;"></i></button>
-                                <button id="myDele" onclick="DelStd(event)" class="btn btn-danger btn-rounded btn-fw"
-                                    role="button" name="clear_data">Delete<i class="bi bi-calendar-x-fill"
-                                        style="padding-left: 5px;"></i></button>
-                            </div>
-                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button> -->
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
 
-                                <h4 class="card-title text-center">Preview - Teaching Record (Weekend Class)</h4>
+                                <h4 class="card-title text-center">Video Math</h4>
+                                <div class="form-group">
+                                    <table class="table table-borderless">
+                                        <tr>
+                                            <td>
+                                                <label for="fileTypes">Grade</label>
+                                                <select class="form-control" id="getGrade" style="color: black;">
+                                                    <option>- Select -</option>
+                                                    <option>G5</option>
+                                                    <option>G6</option>
+                                                    <option>G7</option>
+                                                    <option>G8</option>
+                                                </select>
+
+                                            </td>
+                                            <td>
+                                                <label for="fileStyle">Unit</label>
+                                                <select class="form-control" id="getUnit" style="color: black;">
+                                                    <option>- Select -</option>
+                                                    <option value="u1">u1</option>
+                                                    <option value="u2">u2</option>
+                                                    <option value="u3">u3</option>
+                                                    <option value="u4">u4</option>
+                                                    <option value="u5">u5</option>
+                                                    <option value="u6">u6</option>
+                                                </select>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <video id="playVV" controls=""  name="media" style="width: 100%;height: auto;">
+                                        <source id="myPlayer"
+                                            src=""
+                                            type="video/mp4">
+                                    </video>
+
+                                </div>
                                 <!-- <button type="button" class="btn btn-success btn-rounded btn-fw" id="myAdd"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 5rem;"
                                 onclick="NewBox()">Add</button> -->
-                                
+
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <div class="table-responsive pt-3">
+                                <div class="table-responsive pt-3" style="height: 25rem;overflow: auto;">
                                     <table class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">
-                                                    #
-                                                </th>
-                                                <th class="text-center">
-                                                    ID
-                                                </th>
-                                                <th class="text-center">
-                                                    Date
-                                                </th>
-                                                <th class="text-center">
-                                                    Times
-                                                </th>
-                                                <th class="text-center">
-                                                    Month
-                                                </th>
-                                                <th class="text-center">
-                                                    Week
-                                                </th>
-                                                <th class="text-center">
-                                                    Payment
-                                                </th>
-                                                <th class="text-center">
-                                                    Other
-                                                </th>
-                                            </tr>
+                                        <thead id="viewIII" >
+
                                         </thead>
-                                        <tbody id="showData">
-                                            
-                                        </tbody>
+
                                     </table>
                                 </div>
                             </div>
@@ -643,7 +552,8 @@
                         </span>
                     </div>
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Created by <a target="_blank">Raksmey
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Created by <a
+                                target="_blank">Raksmey
                                 Alix</a></span>
                     </div>
 
@@ -664,6 +574,11 @@
     <script src="vendors/datatables.net/jquery.dataTables.js"></script>
     <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
     <script src="js/dataTables.select.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase.js"></script> -->
 
     <!-- End plugin js for this page -->
     <!-- inject:js -->
@@ -682,11 +597,7 @@
     <!-- Custom js for this page-->
     <script src="js/dashboard.js"></script>
     <script src="js/Chart.roundedBarCharts.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-storage.js"></script>
-    <script src="./js/preview.js"></script>
+    <script type="module" src="./js/preview.js"></script>
     <!-- End custom js for this page-->
 </body>
 

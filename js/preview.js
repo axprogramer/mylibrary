@@ -1,173 +1,90 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL, listAll }
+    from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js"
 const firebaseConfig = {
-    apiKey: "AIzaSyAOX5I_BB9soXF4yHMp9NCPVk2Z-d3DEPE",
-    authDomain: "teachingrecord-6b575.firebaseapp.com",
-    databaseURL: "https://teachingrecord-6b575-default-rtdb.firebaseio.com",
-    projectId: "teachingrecord-6b575",
-    storageBucket: "teachingrecord-6b575.appspot.com",
-    messagingSenderId: "1097574891233",
-    appId: "1:1097574891233:web:d69ed85c4f4b83daad41a0"
+    apiKey: "AIzaSyCghBrr_537ClR_J54jw-ZXuQkvRYDv3vw",
+    authDomain: "keepnote-6d67b.firebaseapp.com",
+    databaseURL: "https://keepnote-6d67b-default-rtdb.firebaseio.com",
+    projectId: "keepnote-6d67b",
+    storageBucket: "keepnote-6d67b.appspot.com",
+    messagingSenderId: "544458020315",
+    appId: "1:544458020315:web:5bb8a147b9fa22d9b983fe"
 };
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+import { getDatabase, ref, set, get, child, update, remove }
+    from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"
+const db = getDatabase();
+var getgrade = localStorage.getItem('getGrade');
+var getunit = localStorage.getItem('getUnit');
 
-firebase.initializeApp(firebaseConfig);
+var nameDb = 'mathG7/' + getunit;
 
-var my5aAll = firebase.database().ref('myNotePad');
+const storage = getStorage();
+// Create a reference under which you want to list
+const listRef = sRef(storage, nameDb);
+var grade = document.getElementById('getGrade');
+var unit = document.getElementById('getUnit');
 
-const getElementVal = (id) => {
-    return document.getElementById(id).value;
-};
-function selectAllData() {
-    // document.getElementById('myNewInput').innerHTML = "";
-    studentN0 = 0;
-    firebase.database().ref('myNotePad').once('value',
-        function (AllRecords) {
-            AllRecords.forEach(
-                function (CurrentRecord) {
-                    var id = CurrentRecord.val().id;
-                    var date = CurrentRecord.val().date;
-                    var times = CurrentRecord.val().times;
-                    var weeks = CurrentRecord.val().weeks;
-                    var month = CurrentRecord.val().month;
-                    var other = CurrentRecord.val().other;
-                    var pay = CurrentRecord.val().pay;
-                    addItemsToTable(id, date, times, weeks, month, other, pay);
-                }
-            );
-        });
 
-}
-window.onload = selectAllData;
-var studentN0;
 
-var stdList = [];
-function addItemsToTable(id, date, times, weeks, month, other, pay) {
-    var tbody = document.getElementById('showData');
-
-    stdList.push([id, date, times, weeks, month, other, pay]);
+listAll(listRef).then((result) => {
+    n0 = 0;
+    result.items.forEach((imageRef) => {
+        getDownloadURL(imageRef).then((url) => {
+            viewImg(url, getname)
+            clickToPlay();
+        })
+        var name = imageRef.name;
+        var temp = name.split('.');
+        var ext = temp.slice((temp.lenth - 1), (temp.lenth));
+        var getname = ext[0];
+    });
+});
+var imgDataView = [];
+var n0;
+function viewImg(getUURL, getname) {
+    var viewPlace = document.getElementById('viewIII');
+    imgDataView.push([getUURL, getname]);
+    let ii = `
+    <td style="text-align: center;">
+    <p style="color: red;"></p>
     
-    let tr = `
-        <th>${++studentN0}</th>
-        <th>${id}</th>
-        <th>${date}</th>
-        <th>${times}</th>
-        <th>${month}</th>
-        <th>${weeks}</th>
-        <th>${pay}</th>
-        <th>${other}</th>
-                        
-            
-            `
-    // if (pay == 'paid') {
-    //     tbody.innerHTML = '';
-
-    // } else {
-        
-    // }
-    tbody.innerHTML += tr;
+    <p><button type="button" class="btn btn-primary btn-rounded btn-fw" value="${getUURL}" id="${getname}"><i class="bi bi-play"></i></button> &nbsp;&nbsp;&nbsp;&nbsp;#${++n0} ${getname}</p>
+    <br>
+    `
+    viewPlace.innerHTML += ii;
 }
+grade.addEventListener('change', () => {
+    var unit = document.getElementById('getGrade');
+    var show = unit.value;
+    localStorage.setItem('getGrade', show);
+    window.location.reload();
+})
+unit.addEventListener('change', () => {
+    var unit = document.getElementById('getUnit');
+    var show = unit.value;
+    localStorage.setItem('getUnit', show);
+    window.location.reload();
+})
 
-var Mid = document.getElementById('myid');
-var Mdate = document.getElementById('myDate');
-var Mtimes = document.getElementById('myTimes');
-var Mweeks = document.getElementById('myWeeks');
-var Mmonth = document.getElementById('myMonth');
-var Mother = document.getElementById('myother');
-var Mmypaid = document.getElementById('mypaid');
+grade.value = getgrade;
+unit.value = getunit;
 
-
-var BtnSubmit = document.getElementById('mySubmit');
-var BtnUpdate = document.getElementById('myUpdate');
-var BtnDele = document.getElementById('myDele');
-var BtnClearBox = document.getElementById('myClear');
-var BtnClearAll = document.getElementById('myClearAll');
-
-
-function Fillbox(index) {
-    if (index == null) {
-        BtnSubmit.style.display = 'inline-block';
-        BtnUpdate.style.display = 'none';
-        BtnDele.style.display = 'none';
-        BtnClearBox.style.display = 'none';
-
-    }
-    else {
-        Mid.value = stdList[index][0];
-        Mdate.value = stdList[index][1];
-        Mtimes.value = stdList[index][2];
-        Mweeks.value = stdList[index][3];
-        Mmonth.value = stdList[index][4];
-        Mother.value = stdList[index][5];
-        Mmypaid.value = stdList[index][6];
-        BtnClearBox.style.display = 'inline-block';
-
-        BtnSubmit.style.display = 'none';
-        BtnUpdate.style.display = 'inline-block';
-        BtnDele.style.display = 'inline-block';
+function clickToPlay() {
+    for (var i = 0; i < imgDataView.length; i++) {
+        var name = imgDataView[i][1];
+        var url = imgDataView[i][0];
+        var player = document.getElementById('myPlayer');
+        var playII = document.getElementById('playVV');
+        playII.src = urlPlay;
+        playII.autoplay = true;
+        document.getElementById(`${name}`).addEventListener('click',function(){
+            var nn = this.value;
+            localStorage.setItem('playURL',nn)
+            window.location.reload();            
+        })
     }
 }
-NewBox();
 
-function NewBox() {
-    let r = (Math.random() + 1).toString(36).substring(7);
-    Mid.value = r;
-    Mdate.value = '';
-    Mtimes.value = '';
-    Mweeks.value = '';
-    Mmonth.value = '';
-    Mother.value = '';
-    // Mmypaid.value = '';
-    BtnSubmit.style.display = 'inline-block';
-    BtnUpdate.style.display = 'none';
-    BtnDele.style.display = 'none';
-    BtnClearBox.style.display = 'none';
-}
-
-function AddStd(e) {
-    firebase.database().ref("myNotePad/" + Mdate.value).set(
-        {
-            id: Mid.value,
-            date: Mdate.value,
-            times: Mtimes.value,
-            weeks: Mweeks.value,
-            month: Mmonth.value,
-            other: Mother.value,
-            pay: Mmypaid.value,
-        },
-    )
-    selectAllData();
-    window.location.reload();
-    e.preventDefault();
-
-
-}
-function UpStd(e) {
-    firebase.database().ref("myNotePad/" + Mdate.value).update(
-        {
-            id: Mid.value,
-            date: Mdate.value,
-            times: Mtimes.value,
-            weeks: Mweeks.value,
-            month: Mmonth.value,
-            other: Mother.value,
-            pay: Mmypaid.value,
-        },
-    )
-    selectAllData();
-    e.preventDefault();
-    window.location.reload();
-
-}
-function DelStd(e) {
-    firebase.database().ref("myNotePad/" + Mdate.value).remove().then(
-        function () {
-            selectAllData();
-            // window.location.reload();
-            e.preventDefault();
-
-        }
-    )
-}
-function DelStdAll() {
-    firebase.database().ref("myNotePad").remove();
-
-    // window.location.reload();
-}
+var urlPlay = localStorage.getItem('playURL');
