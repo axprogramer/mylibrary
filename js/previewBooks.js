@@ -10,11 +10,11 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const storageRef = firebase.storage().ref();
-var nameDb = 'mathG7/' + getunit;
+var nameDb = 'answerkeyBooks/MathG7/Practice/';
 var getgrade = localStorage.getItem('getGrade');
 var getunit = localStorage.getItem('getUnit');
 
-var listRef = storageRef.child('mathG7/' + getunit);
+var listRef = storageRef.child('answerkeyBooks/MathG7/Practice/');
 
 // Create a reference under which you want to list
 var grade = document.getElementById('getGrade');
@@ -28,6 +28,8 @@ listRef.listAll().then((result) => {
         imageRef.getDownloadURL().then((url) => {
             viewImg(url, getname)
             clickToPlay();
+            pdfDataView.sort(function (a, b) { return b.getname - a.getname });
+
         })
         var name = imageRef.name;
         var temp = name.split('.');
@@ -35,11 +37,11 @@ listRef.listAll().then((result) => {
         var getname = ext[0];
     });
 });
-var imgDataView = [];
+var pdfDataView = [];
 var n0;
 function viewImg(getUURL, getname) {
     var viewPlace = document.getElementById('viewIII');
-    imgDataView.push([getUURL, getname]);
+    pdfDataView.push([getUURL, getname]);
     let ii = `
     <td style="text-align: left;">
     <p style="color: red;"></p>
@@ -66,19 +68,18 @@ grade.value = getgrade;
 unit.value = getunit;
 
 function clickToPlay() {
-    for (var i = 0; i < imgDataView.length; i++) {
-        var name = imgDataView[i][1];
-        var url = imgDataView[i][0];
+    for (var i = 0; i < pdfDataView.length; i++) {
+        var name = pdfDataView[i][1];
+        var url = pdfDataView[i][0];
         var player = document.getElementById('myPlayer');
-        var playII = document.getElementById('playVV');
+        var playII = document.getElementById('myShowPDF');
         playII.src = urlPlay;
-        playII.autoplay = true;
-        document.getElementById(`${name}`).addEventListener('click',function(){
+        document.getElementById(`${name}`).addEventListener('click', function () {
             var nn = this.value;
-            localStorage.setItem('playURL',nn)
-            window.location.reload();            
+            localStorage.setItem('loadPDF', nn)
+            window.location.reload();
         })
     }
 }
 
-var urlPlay = localStorage.getItem('playURL');
+var urlPlay = localStorage.getItem('loadPDF');

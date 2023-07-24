@@ -440,6 +440,13 @@
                             <span class="menu-title">Review</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./previewBooks.html">
+                            <i class="icon-paper menu-icon"></i>
+                            <span class="menu-title">Review Books</span>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
             <!-- partial -->
@@ -512,10 +519,8 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <video id="playVV" controls=""  name="media" style="width: 100%;height: auto;">
-                                        <source id="myPlayer"
-                                            src=""
-                                            type="video/mp4">
+                                    <video id="playVV" controls="" name="media" style="width: 100%;height: auto;">
+                                        <source id="myPlayer" src="" type="video/mp4">
                                     </video>
 
                                 </div>
@@ -531,7 +536,7 @@
                             <div class="card-body">
                                 <div class="table-responsive pt-3" style="height: 25rem;overflow: auto;">
                                     <table class="table table-bordered table-hover">
-                                        <thead id="viewIII" >
+                                        <thead id="viewIII">
 
                                         </thead>
 
@@ -574,10 +579,16 @@
     <script src="vendors/datatables.net/jquery.dataTables.js"></script>
     <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
     <script src="js/dataTables.select.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script> -->
+
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-storage-compat.js"></script>
+
     <!-- <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase.js"></script> -->
 
     <!-- End plugin js for this page -->
@@ -597,7 +608,7 @@
     <!-- Custom js for this page-->
     <script src="js/dashboard.js"></script>
     <script src="js/Chart.roundedBarCharts.js"></script>
-    <script type="module" src="./js/preview.js"></script>
+    <script src="./js/preview.js"></script>
     <!-- End custom js for this page-->
 </body>
 
