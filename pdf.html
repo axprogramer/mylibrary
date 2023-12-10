@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.6, shrink-to-fit=no">
-    <title>MyLibrary</title>
+    <title>NotePad</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/feather/feather.css">
     <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -17,29 +17,30 @@
     <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/icon.png" />
 </head>
 
 <body>
-    <div class="container-scroller">
+    <div class="container-scroller" >
         <!-- partial:partials/_navbar.html -->
-        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" style="display: none;">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="./images/icon.png" class="mr-2"
-                        alt="logo" />L)</a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="./images/icon.png"
-                        alt="logo" />L)</a>
+                <a class="navbar-brand brand-logo mr-5" href="index.html"  style="display: none;"><img src="./images/icon.png" class="mr-2"
+                        alt="logo" />NP</a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"  style="display: none;"><img src="./images/icon.png"
+                        alt="logo" />NP</a>
             </div>
-            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" style="display: none;">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize"  style="display: none;">
                     <span class="icon-menu"></span>
                 </button>
-                <ul class="navbar-nav mr-lg-2">
+                <P style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: black;font-size: 18px;">LET'S GO READER</P>
+                <ul class="navbar-nav mr-lg-2" style="display: none;">
                     <li class="nav-item nav-search d-none d-lg-block">
                         <div class="input-group">
                             <!-- <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
@@ -52,7 +53,7 @@
                         </div>
                     </li>
                 </ul>
-                <ul class="navbar-nav navbar-nav-right">
+                <ul class="navbar-nav navbar-nav-right" style="display: none;">
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                             data-toggle="dropdown">
@@ -103,7 +104,7 @@
                             </a>
                         </div>
                     </li> -->
-                    <li class="nav-item nav-profile dropdown">
+                    <!-- <li class="nav-item nav-profile dropdown" style="display: none;">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img src="https://media.licdn.com/dms/image/C5103AQFE5Z6dl81aOA/profile-displayphoto-shrink_800_800/0/1565560625541?e=2147483647&v=beta&t=EZ-679rguoUzly0b1lvIQ2gPwwAbo3SoZFASZ3h_Xdc"
                                 alt="profile" />
@@ -124,16 +125,16 @@
                         <a class="nav-link" href="#">
                             <i class="icon-ellipsis"></i>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
-                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                <!-- <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
                     data-toggle="offcanvas">
                     <span class="icon-menu"></span>
-                </button>
+                </button> -->
             </div>
         </nav>
         <!-- partial -->
-        <div class="container-fluid page-body-wrapper">
+        <div class="container-fluid page-body-wrapper" >
             <!-- partial:partials/_settings-panel.html -->
             <div class="theme-setting-wrapper">
                 <div id="settings-trigger"><i class="ti-settings"></i></div>
@@ -157,7 +158,7 @@
                     </div>
                 </div>
             </div>
-            <div id="right-sidebar" class="settings-panel">
+            <div id="right-sidebar" class="settings-panel" style="display: none;">
                 <i class="settings-close ti-close"></i>
                 <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
                     <li class="nav-item">
@@ -316,23 +317,17 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- chat tab ends -->
                 </div>
             </div>
+
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                <ul class="nav">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar" style="display: none;">
+                <ul class="nav" style="display: none;" >
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">
+                        <a class="nav-link" href="index.html">
                             <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Upload</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pdf.html">
-                            <i class="bi bi-arrow-down-circle-fill"></i>
-                            <span class="menu-title">LGReader Apps</span>
+                            <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
                     <!-- <li class="nav-item">
@@ -441,7 +436,7 @@
                         </div>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./preview.html">
+                        <a class="nav-link active" href="./preview.html">
                             <i class="icon-paper menu-icon"></i>
                             <span class="menu-title">Review</span>
                         </a>
@@ -452,114 +447,110 @@
                             <span class="menu-title">Review Books</span>
                         </a>
                     </li>
+
                 </ul>
             </nav>
             <!-- partial -->
+            <!-- Button trigger modal -->
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>
+             -->
             <!-- Modal -->
+            <div id="mymodal">
+
+            </div>
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">
+                                Information
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card-body">
+
+                                <video controls="" name="media" style="width: 100%;height: 100%;">
+                                    <source
+                                        src="https://firebasestorage.googleapis.com/v0/b/teachingrecord-6b575.appspot.com/o/mathG7%2Fu5%2F%E1%9E%80%E1%9E%B6%E1%9E%9A%E1%9E%94%E1%9E%84%E1%9F%92%E1%9E%82%E1%9E%8F%E1%9F%8B%E1%9E%85%E1%9F%86%E1%9E%93%E1%9E%BD%E1%9E%93%E1%9E%91%E1%9E%9F%E1%9E%97%E1%9E%B6%E1%9E%82%E1%9E%80%E1%9E%B6%E1%9E%9A%E1%9E%94%E1%9F%89%E1%9E%B6%E1%9E%93%E1%9F%8B%E1%9E%9F%E1%9F%92%E1%9E%98%E1%9E%B6%E1%9E%93%E1%9E%85%E1%9E%98%E1%9F%92%E1%9E%9B%E1%9E%BE%E1%9E%99%E1%9E%94%E1%9F%92%E1%9E%9A%E1%9E%A0%E1%9F%82%E1%9E%9B__%20%E1%9E%91%E1%9F%86%E1%9E%96%E1%9F%90%E1%9E%9A%E1%9E%91%E1%9E%B853-62%20__%20%E1%9E%90%E1%9F%92%E1%9E%93%E1%9E%B6%E1%9E%80%E1%9F%8B%E1%9E%91%E1%9E%B87%20__%E1%9E%98%E1%9F%81%E1%9E%9A%E1%9F%80%E1%9E%91%E1%9E%B8%E1%9F%A5%20%E1%9E%85%E1%9F%86%E1%9E%93%E1%9E%BD%E1%9E%93%E1%9E%91%E1%9E%9F(720P_.mp4?alt=media&amp;token=efa034e0-389e-4855-bbd9-42e495615a57"
+                                        type="video/mp4">
+                                </video>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
             <div class="main-panel">
                 <div class="content-wrapper">
-                    <div class="col-12 grid-margin stretch-card">
+                    <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Upload PDF</h4>
-                                <p class="card-description">
-                                <p id="showPercent" style="color: rgb(255, 47, 47);"></p>
-                                </p>
+
+                                <h4 class="card-title text-center">Let's Go Reader - Download for Android Phone</h4>
                                 <div class="form-group">
-                                    <label for="fileID">ID</label>
-                                    <input type="text" class="form-control" id="fileID" placeholder="Name"
-                                        style="color: black;">
-                                </div>
-                                <div class="form-group">
-                                    <label for="fileName">Name</label>
-                                    <input type="text" class="form-control" id="fileName" placeholder="Name"
-                                        style="color: black;">
-                                </div>
-                                <div class="form-group">
-                                    <table class="table table-borderless">
+                                    <table class="table table-borderless" style="display: none;">
                                         <tr>
                                             <td>
-                                                <label for="fileTypes">Type of Book</label>
-                                                <select class="form-control" id="fileTypes" style="color: black;">
-                                                    <option>Course Books</option>
-                                                    <option>Grammar</option>
-                                                    <option>Reading</option>
-                                                    <option>Story</option>
-                                                    <option>Exam Paper</option>
+                                                <label for="fileTypes">Grade</label>
+                                                <select class="form-control" id="getGrade" style="color: black;">
+                                                    <option>- Select -</option>
+                                                    <option>G5</option>
+                                                    <option>G6</option>
+                                                    <option>G7</option>
+                                                    <option>G8</option>
                                                 </select>
 
                                             </td>
                                             <td>
-                                                <label for="fileStyle">Book Styles</label>
-                                                <select class="form-control" id="fileStyle" style="color: black;">
-                                                    <option>Student's Book</option>
-                                                    <option>Workbook</option>
-                                                    <option>Exercise</option>
+                                                <label for="fileStyle">Unit</label>
+                                                <select class="form-control" id="getUnit" style="color: black;">
+                                                    <option>- Select -</option>
+                                                    <option value="u1">u1</option>
+                                                    <option value="u2">u2</option>
+                                                    <option value="u3">u3</option>
+                                                    <option value="u4">u4</option>
+                                                    <option value="u5">u5</option>
+                                                    <option value="u6">u6</option>
                                                 </select>
 
                                             </td>
                                         </tr>
                                     </table>
+                                    <video id="playVV" controls="" name="media" style="width: 100%;height: auto; display: none;">
+                                        <source id="myPlayer" src="" type="video/mp4">
+                                    </video>
+
                                 </div>
-                                <div class="form-group">
-                                    <label>File upload</label>
-                                    <input type="file" name="img[]" class="file-upload-default">
-                                    <div class="input-group col-xs-12">
-                                        <input type="text" class="form-control file-upload-info" disabled
-                                            placeholder="Upload Image" id="nameBox">
-                                        <!-- <p id="extlab"></p> -->
-                                        <span class="input-group-append">
-                                            <button id="seleImg" class="file-upload-browse btn btn-primary"
-                                                type="button">Upload</button>
-                                        </span>
-                                    </div>
-                                    <span>URL: <span id="showURL"></span></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="fileOther">File Information</label>
-                                    <textarea class="form-control" id="fileOther" rows="4"></textarea>
-                                </div>
-                                <div class="btnCon">
-                                    <button type="submit" class="btn btn-primary mr-2" id="uploadBtn">Submit</button>
-                                    <button id="myClear" onclick="NewBox()" class="btn btn-info btn-rounded btn-fw"
-                                        role="button" name="clearup_data">Clear<i class="bi bi-stars"
-                                            style="padding-left: 5px;"></i></button>
-                                    <button id="myUpdate" onclick="UpStd()" class="btn btn-warning btn-rounded btn-fw"
-                                        role="button" name="update_data">Update<i class="bi bi-arrow-bar-up"
-                                            style="padding-left: 5px;"></i></button>
-                                    <button id="myDele" onclick="DelStd()" class="btn btn-danger btn-rounded btn-fw"
-                                        role="button" name="clear_data">Delete<i class="bi bi-calendar-x-fill"
-                                            style="padding-left: 5px;"></i></button>
-                                </div>
+                                <!-- <button type="button" class="btn btn-success btn-rounded btn-fw" id="myAdd"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 5rem;"
+                                onclick="NewBox()">Add</button> -->
 
                             </div>
-                            <div id="myCard" style="overflow-y: scroll;height: 20rem;">
-
-
-                            </div>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-xl modal-fullscreen" style="height: auto;width: auto;">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div style="height: 70vh;width: auto;">
-
-                                                <embed id="myShowPDF" src="" width="100%" height="100%">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
+                    <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive pt-3" style="height: 25rem;overflow: auto;">
+                                    <table class="table table-borderless table-hover">
+                                        <thead id="viewIII">
+
+                                        </thead>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="myCard">
+
+                    </div>
                 </div>
+                <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
@@ -568,7 +559,8 @@
                     </div>
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
                         <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Created by <a
-                                target="_blank">Raksmey Alix</a></span>
+                                target="_blank">Raksmey
+                                Alix</a></span>
                     </div>
 
                 </footer>
@@ -588,6 +580,17 @@
     <script src="vendors/datatables.net/jquery.dataTables.js"></script>
     <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
     <script src="js/dataTables.select.min.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script> -->
+
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-storage-compat.js"></script>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase.js"></script> -->
 
     <!-- End plugin js for this page -->
     <!-- inject:js -->
@@ -606,20 +609,7 @@
     <!-- Custom js for this page-->
     <script src="js/dashboard.js"></script>
     <script src="js/Chart.roundedBarCharts.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-storage.js"></script> -->
-
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-storage-compat.js"></script>
-
-    <script src="./js/upload.js"></script>
-    <!-- <script src="./js/uploadInfo.js"></script> -->
-    <script src="./js/data.js"></script>
-    <!-- <script src="./js/data.js"></script> -->
+    <script src="./js/previewpdf.js"></script>
     <!-- End custom js for this page-->
 </body>
 
